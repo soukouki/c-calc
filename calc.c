@@ -13,12 +13,10 @@ int integer(void) {
 
 int main(void) {
   scanf("%255s", buf);
-  int left = integer();
-  int right = 0;
-  if (buf[idx] == '+') {
+  int result = integer();
+  while(buf[idx] == '+') {
     idx++;
-    right = integer();
+    result += integer();
   }
-  int result = left + right;
   printf("%d\n", result);
 }
