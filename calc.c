@@ -13,6 +13,9 @@ int integer(void) {
 
 int main(void) {
   scanf("%255s", buf);
-  int number = integer();
-  printf("%d\n", number);
+  int left = integer();
+  idx += 1;
+  int right = integer();
+  int result = left + right;
+  printf("%d\n", result);
 }
