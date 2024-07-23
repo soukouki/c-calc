@@ -5,10 +5,17 @@ int idx = 0;
 
 int integer(void) {
   int number = 0;
+  int sign = 1;
+  if(buf[idx] == '-') {
+    sign = -1;
+    idx++;
+  } else if(buf[idx] == '+') {
+    idx++;
+  }
   for(; '0' <= buf[idx] && buf[idx] <= '9'; idx++) {
     number = number * 10 + buf[idx] - '0';
   }
-  return number;
+  return number * sign;
 }
 
 int mul_div(void) {
@@ -41,6 +48,6 @@ int add_sub(void) {
 
 int main(void) {
   scanf("%255s", buf);
-  int result = add_sub();
+  int result = integer();
   printf("%d\n", result);
 }
