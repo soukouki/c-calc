@@ -11,8 +11,7 @@ int integer(void) {
   return number;
 }
 
-int main(void) {
-  scanf("%255s", buf);
+int add_sub(void) {
   int result = integer();
   while(buf[idx] == '+' || buf[idx] == '-') {
     if(buf[idx] == '+') {
@@ -23,5 +22,11 @@ int main(void) {
       result -= integer();
     }
   }
+  return result;
+}
+
+int main(void) {
+  scanf("%255s", buf);
+  int result = add_sub();
   printf("%d\n", result);
 }
