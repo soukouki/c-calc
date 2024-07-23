@@ -48,6 +48,6 @@ int add_sub(void) {
 
 int main(void) {
   scanf("%255s", buf);
-  int result = integer();
+  int result = add_sub();
   printf("%d\n", result);
 }
