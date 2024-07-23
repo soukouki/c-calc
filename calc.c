@@ -14,8 +14,11 @@ int integer(void) {
 int main(void) {
   scanf("%255s", buf);
   int left = integer();
-  idx += 1;
-  int right = integer();
+  int right = 0;
+  if (buf[idx] == '+') {
+    idx++;
+    right = integer();
+  }
   int result = left + right;
   printf("%d\n", result);
 }
