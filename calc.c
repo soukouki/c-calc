@@ -18,6 +18,19 @@ int integer(void) {
   return number * sign;
 }
 
+int add_sub(void);
+
+int paren(void) {
+  if(buf[idx] == '(') {
+    idx++;
+    int result = add_sub();
+    idx++;
+    return result;
+  } else {
+    return integer();
+  }
+}
+
 int mul_div(void) {
   int result = integer();
   while(buf[idx] == '*' || buf[idx] == '/') {
@@ -48,6 +61,6 @@ int add_sub(void) {
 
 int main(void) {
   scanf("%255s", buf);
-  int result = add_sub();
+  int result = paren();
   printf("%d\n", result);
 }
