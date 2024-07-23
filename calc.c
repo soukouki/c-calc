@@ -32,14 +32,14 @@ int paren(void) {
 }
 
 int mul_div(void) {
-  int result = integer();
+  int result = paren();
   while(buf[idx] == '*' || buf[idx] == '/') {
     if(buf[idx] == '*') {
       idx++;
-      result *= integer();
+      result *= paren();
     } else if(buf[idx] == '/') {
       idx++;
-      result /= integer();
+      result /= paren();
     }
   }
   return result;
@@ -61,6 +61,6 @@ int add_sub(void) {
 
 int main(void) {
   scanf("%255s", buf);
-  int result = paren();
+  int result = add_sub();
   printf("%d\n", result);
 }
