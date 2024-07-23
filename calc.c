@@ -14,9 +14,14 @@ int integer(void) {
 int main(void) {
   scanf("%255s", buf);
   int result = integer();
-  while(buf[idx] == '+') {
-    idx++;
-    result += integer();
+  while(buf[idx] == '+' || buf[idx] == '-') {
+    if(buf[idx] == '+') {
+      idx++;
+      result += integer();
+    } else if(buf[idx] == '-') {
+      idx++;
+      result -= integer();
+    }
   }
   printf("%d\n", result);
 }
