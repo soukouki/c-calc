@@ -26,14 +26,14 @@ int mul_div(void) {
 }
 
 int add_sub(void) {
-  int result = integer();
+  int result = mul_div();
   while(buf[idx] == '+' || buf[idx] == '-') {
     if(buf[idx] == '+') {
       idx++;
-      result += integer();
+      result += mul_div();
     } else if(buf[idx] == '-') {
       idx++;
-      result -= integer();
+      result -= mul_div();
     }
   }
   return result;
@@ -41,6 +41,6 @@ int add_sub(void) {
 
 int main(void) {
   scanf("%255s", buf);
-  int result = mul_div();
+  int result = add_sub();
   printf("%d\n", result);
 }
